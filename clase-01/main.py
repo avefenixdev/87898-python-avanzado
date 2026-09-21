@@ -167,3 +167,77 @@ print('Agregando un valor a lista')
 frutas.append('frutilla')
 
 print(frutas)
+
+""" 
+! ¿Cuándo usar la listas?
+
+* Cuando tenemos elementos similares
+alumnos = ["Juan", "Pedro", "Ana", "Lucía"]
+precios = [1500, 2000, 3500, 1200]
+notas = [8, 7, 10, 6]
+
+* Cuando necesito matener una secuencia
+pasos = [
+    "Iniciar sesión",
+    "Seleccionar producto",
+    "Pagar",
+    "Confirmar pedido"
+]
+
+* Muchos elementos y quiero manejarlos como una secuencia.
+"""
+
+print('Tuplas (tuple)')
+# Es parecida a una lista pero no se puede modificar después de crearla.
+
+coordenadas = (10, 20)
+
+print('Accediendo a los valores')
+
+print(coordenadas[0]) # 10 <--- latitud
+print(coordenadas[1]) # 20 <--- longitud
+#     red green blue
+rgb = (255, 0, 0) # rojo
+
+print('Mostrando rgb')
+
+print(rgb)
+print(rgb[0]) # red
+print(rgb[1]) # green
+print(rgb[2]) # blue
+
+print('Datos de una persona dentro de una tupla')
+#          'nombre'
+#            0      1       2 
+persona = ('Maxi', 22, 'Argentina')
+
+print(persona[0]) # Maxi
+print(persona[1]) # 22
+print(persona[2]) # Argentina
+
+dias_semana = (
+    "lunes",
+    "martes",
+    "miercoles",
+    "jueves",
+    "viernes",
+    "sábado",
+    "domingo"
+)
+
+for dia in dias_semana:
+    print(dia)
+    
+
+print('Desempaquetado de una tupla') # destructuracción
+
+def obtener_usuario():
+    tuplaUsuario = ("Maxi", 22)
+    #return "Maxi", 22
+    return tuplaUsuario
+
+nombre, edad = obtener_usuario()
+print(nombre, edad)
+tuplaUsuario = ("Maxi", 33)
+nombre, edad = tuplaUsuario
+print(nombre, edad)
