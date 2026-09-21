@@ -1,0 +1,22 @@
+print('-------------------------- 1')
+nombre = 'Maxi'
+edad = int(35);
+altura = float(1.78)
+es_programdor = True
+print(type(nombre))
+print(type(edad))
+print(type(altura))
+print(type(es_programdor))
+print('-------------------------- 2')
+nombre = input('Ingrese su nombre: ')
+print('no hay que castearlo, tiene que ser un str')
+print(type(nombre))
+print(nombre)
+ingrese_numero = int(input('Ingrese un numero entero: '))
+print('Hay que castearlo porque es un numero entero')
+print(type(ingrese_numero))
+print(ingrese_numero)
+ingrese_numero = float(input('Ingrese un numero decimal: '))
+print('Hay que castearlo porque es un numero decimal')
+print(type(ingrese_numero))
+print(ingrese_numero)

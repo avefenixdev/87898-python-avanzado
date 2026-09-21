@@ -131,3 +131,39 @@ Hacer ejemplo del uso de None y utilizar el type
 
 """
 
+print(' # ! Estructuras de datos')
+
+
+"""
+* Listas -> (list) -> Guardan varios valores en un orden fijo -> []
+
+* Tuplas (tuple) -> Son parecidas a la listas pero tiene un orden y aceptan repetidos -> () 
+
+* Diccionarios (dict) -> Guardan datos en parejas de clave, valor. No siguen un orden especifico {}
+
+* Conjuntos (set) -> Guardan elementos únicos sin orden. No permiten que se repita un valor. -> {}
+"""
+
+print('Listas - (list)')
+# Una lista sirve para cuando tenemos varios elementos y el orden importa. Es una estructura indexada la lista.
+
+print('Imprimiendo la lista')
+frutas = ["manzana", "banana", "pera", "naranja"]
+
+print(frutas)
+
+print('Accediendo a una posición especial')
+print(frutas[0]) # manzana
+print(frutas[2]) # pera
+
+print('Modificar banana de la lista')
+
+frutas[1] = "kiwi" # banana va a ser remplazado por kiwi
+
+print(frutas)
+
+print('Agregando un valor a lista')
+
+frutas.append('frutilla')
+
+print(frutas)
