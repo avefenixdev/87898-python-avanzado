@@ -92,3 +92,42 @@ print(""" Casteando la edad """)
 edad_ingresada = int(input("Edad: ")) # Casteamos la cadena a un entero
 print(type(edad_ingresada)) # número
 print(edad_ingresada)
+
+
+""" ¿Qué tipos de datos tiene Python? """
+
+""" 
+* int
+* float
+* str
+* bool
+* None
+
+type()
+"""
+
+""" 
+Ejercicio 1 - Usando type()
+
+nombre = 'Maxi'
+edad = 35
+altura = 1.78
+es_programdor = True
+
+////////////////////////
+Ejercicio 2 - Casteo
+
+Ingresar un nombre - ¿Hay que castearlo?
+
+Ingresan un número entero ¿Hay que castearlo? ¿Cómo lo casteo?
+
+
+Ingresan un número decimal ¿Hay que castearlo? ¿Cómo lo casteo?
+
+Ejercicio 3 - None
+
+Explicar con sus palabras, investigando para que podría servir el tipo None.
+Hacer ejemplo del uso de None y utilizar el type
+
+"""
+
