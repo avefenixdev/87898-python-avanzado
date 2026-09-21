@@ -241,3 +241,113 @@ print(nombre, edad)
 tuplaUsuario = ("Maxi", 33)
 nombre, edad = tuplaUsuario
 print(nombre, edad)
+
+# ! ¿Cuándo usar una tupla?
+# * Cuando hay varios valores relacionados
+# * Orden definido
+# * Cuando no queres que la colección sea modificada
+
+# ! dict (Diccionarios)
+# * Almacena información a través de claves y valores
+usuario = {
+    "nombre": "Maxi",
+    "edad": 35,
+    "profesion": "Docente"
+}
+
+print(usuario)
+
+print('Accedemos a través de las claves')
+print(usuario["nombre"]) # bracket notation
+print(usuario["edad"]) # bracket notation
+print(usuario["profesion"]) # bracket notation
+
+print('Modificamos el valor de alguna clave (edad)')
+
+usuario["edad"] = 22
+print(usuario)
+
+print('Agregar una key al objeto')
+
+usuario['ciudad'] = "Buenos Aires"
+print(usuario)
+
+# ! ¿Cuándo usamos un diccionario
+# * Cuando necesitamos representar una entidad mediante propiedades (caracteristicas)
+# * Cuando tengo información definidad mediante clave/valor.
+
+print('set -> Conjunto')
+# * Voy a usar un set cuando quiera tener dentro elementos únicos
+
+numeros = { 3, 4, 5, 3, 2, 4, 5, 6, 8, 50}
+
+print(numeros) # duplicados desaparecen
+
+# Caso de uso tipico
+
+usuarios = [
+    "Juan",
+    "Pedro",
+    "Juan",
+    "Ana",
+    "Pedro"
+]
+
+print(usuarios) # Lista
+
+usuarios_unicos = set(usuarios) # una lista en un set
+
+print(usuarios_unicos) # Solo me quedaron los usuarios que no se repiten
+
+print('Operaciones de conjuntos')
+
+python = { "Juan", "Pedro", "Ana" }
+javascript = { "Pedro", "Ana", "Lucía" }
+
+print('# personas que hicieron ambos cursos')
+
+print(python & javascript)
+
+print('# personas que conocen Python o Javascript')
+
+print(python | javascript)
+
+# ! ¿Cuándo usamos un set?
+
+# * evitar duplicados
+# * comprobar pertenencia
+# * realizar operaciones de conjuntos
+
+""" 
+Crear un programa en Python que simule el registro de una compra
+
+El programa debe:
+
+1. Pedir al usuario su nombre (almaccenarlo en una variable) -> input()
+2. Pedir el producto que desea comprar. -> input()
+3. Pedir el precio unitario. -> input()
+4. Pedir la cantidad.
+5. Guardar los datos de la compra en un diccionario.
+6. Calcular el subtotal
+7. Si el subtotal es mayor o igual a $50.000, aplicar un 10% de descuento
+8. Mostrar un resumen de la compra
+9. Informar si el cliente obtuvo descuento
+
+# DATOS DE ENTRADA ------------- #
+Nombre: Ana
+Producto: Teclado
+Precio: 35000
+Cantidad: 2
+
+=========== RESUMEN DE COMPRA ========
+
+Cliente: Ana
+Producto: Teclado
+Precio unitario: $35000
+Cantidad: 2
+Subtotal: $70000
+Descuento: 10% si supera los $50000
+Total: $63000
+
+Obtuviste un descuento
+"""
