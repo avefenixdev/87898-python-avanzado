@@ -351,3 +351,108 @@ Total: $63000
 
 Obtuviste un descuento
 """
+
+print("# ! Operadores... ")
+
+print("# ! aritmeticos")
+
+a = 10
+b = 4
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b) 
+print(a // b) # saca decimales. Devuelve el resultado entero -> 1.222222222 -> 1
+print(a % b) # el resto de la división
+print(a ** b) # eleva. potenciación. 10^4
+
+print("# ! Comparación")
+# devuelve un booleano luego de hacer la comparacicón
+print( a == b) # False
+print( a != b) # True
+print( a > b) # True -> 10 > 4
+print( a < b) # False -> 10 < 4
+print( a >= b) # True -> 10 >= 4
+print( a <= b) # False -> 10 <= 4
+
+print("Lógicos -> and")
+
+a = 10
+b = 4
+
+# and | or | not
+# ------------------------ AND -> todas premisas deben ser verdaderas para que el resultaod sea verdadero
+#           False
+#      False and True
+print(a == b and a != b)
+#           True
+#       True and True
+print(a != b and a > b)
+
+print("Lógicos -> or")
+# ----------------------- OR -> Ambas premsisas deben ser falsas para que de como resultado false.
+#           False
+#      False or False
+print(a < b or a <= b)
+#          True
+#      True or False
+print(a != b or a < b)
+
+print("Lógicos -> not")
+
+print(not a != b) # True -> not True -> False
+
+print("Ejemplo de operadores lógicos")
+
+edad = 25
+tiene_entrada = True
+#                        True
+#                  True     and  True
+puede_ingresar = edad >= 18 and tiene_entrada
+print(puede_ingresar) # True
+
+edad = 15
+
+es_menor = edad < 18
+print(es_menor) # True
+es_adulto = not es_menor
+print(es_adulto) # False
+
+print("Operador in")
+
+frutas = ["manzana", "banana", "kiwi"]
+
+print("pera" in frutas) # False
+print("kiwi" in frutas) # True
+
+# Funciones útiles de Python
+
+# * print() # Mostrar información
+# * input() # Pedir datos
+# * type() # Saber el tipo de dato
+# * len() # Saber la cantidad de elementos
+# * id() # obtener identificador del objeto id(nombre)
+# * help() # Consultar documentación
+
+help(str)
+help(int)
+
+# Conversión de tipos
+
+int("25")          # 25
+float("3.14")      # 3.14
+str(100)           # "100"
+bool(1)            # True
+list("Python")     # ['P', 'y', 't', 'h', 'o', 'n']
+tuple([1, 2, 3])   # (1, 2, 3)
+set([1, 2, 2, 3])  # {1, 2, 3}
+
+# Números
+
+abs(-15)          # 15
+round(3.14159, 2) # 3.14
+pow(2, 3)         # 8
+min(10, 5, 20)    # 5
+max(10, 5, 20)    # 20
+sum([10, 20, 30]) # 60
