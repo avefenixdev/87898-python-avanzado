@@ -1,7 +1,7 @@
 print('Clase 01 - Python Avanzado')
 
 """ 
-Crear un programa en Python que simule el registro de una compra
+Crear un programa en Python que simule el registro de una compra (SIN FUNCIONES)
 
 El programa debe:
 
@@ -10,8 +10,8 @@ El programa debe:
 3. Pedir el precio unitario. -> input()
 4. Pedir la cantidad.
 5. Guardar los datos de la compra en un diccionario.
-6. Calcular el subtotal
-7. Si el subtotal es mayor o igual a $50.000, aplicar un 10% de descuento
+6. Calcular el subtotal (precio_unitario * cantidad)
+7. Si el subtotal es mayor o igual a $50.000, aplicar un 10% de descuento (subtotal * 0.10)
 8. Mostrar un resumen de la compra
 9. Informar si el cliente obtuvo descuento
 
@@ -213,3 +213,76 @@ print(archivo.startswith('doc')) # True
 print(archivo.endswith('.pdf')) # True
 print(archivo.endswith('.exe')) # False
 
+print('# ! -------------------- FUNCIONES -----------------------')
+
+print('# ! Funciones con retorno')
+
+""" cliente = input('Ingrese el nombre del cliente: ')
+print('Bienvenido', cliente)
+cliente = input('Ingrese el nombre del cliente: ')
+print('Bienvenido', cliente)
+cliente = input('Ingrese el nombre del cliente: ')
+print('Bienvenido', cliente)
+cliente = input('Ingrese el nombre del cliente: ')
+print('Bienvenido', cliente)
+cliente = input('Ingrese el nombre del cliente: ')
+print('Bienvenido', cliente) """
+
+def bienvenida_cliente():
+    cliente = input('Ingrese el nombre del cliente: ') 
+    saludo = f"Bienvenido {cliente}" 
+    return saludo
+
+""" print(bienvenida_cliente())
+print(bienvenida_cliente())
+print(bienvenida_cliente())
+print(bienvenida_cliente()) """
+
+print('# ! Funciones con parametros y retorno')
+
+def sumar(a, b):
+    return a + b
+
+resultado = sumar(4, 5)
+print(resultado)
+print(resultado - resultado * .50)
+print(sumar(7, 10))
+print(sumar(16, 12))
+print(sumar(22, 44))
+
+print('# ! Funciones con parametros por defecto')
+
+def saludar(nombre, saludo="Hola"):
+    return f"{saludo} {nombre}"
+
+print(saludar('Cinthia'))
+print(saludar('Sabrina', 'Bienvenida'))
+
+print('Funciones con *args (argumentos variables)')
+
+def recibe_argumentos(num1, num2, num3, num4):
+    print(num1)
+    print(num2)
+    print(num3)
+    print(num4)
+    print(num1 + num2 + num3 + num4)
+
+# recibe_argumentos(1, 3, 4, 5)
+
+def sumar(*argumentos): # args -> (num1, num2, num3, numN) <-- tupla
+    print(argumentos)
+    total = sum(argumentos)
+    return total 
+
+def promedio(*argumentos): 
+    total = sum(argumentos)
+    cantidad = len(argumentos)
+    return total / cantidad
+    
+print(sumar(2, 3, 4, 5, 6, 7)) # 6
+print(sumar(2, 3)) # 2
+print(sumar(2, 83, 3, 43)) # 4
+print('------')
+print(promedio(3, 46, 43, 32))
+print(promedio(2, 44))
+print(round(promedio(65, 33, 12, 22, 23, 44), 2))
