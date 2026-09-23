@@ -286,3 +286,100 @@ print('------')
 print(promedio(3, 46, 43, 32))
 print(promedio(2, 44))
 print(round(promedio(65, 33, 12, 22, 23, 44), 2))
+
+print('Funciones con **kwargs (argumentos nombrados) -> diccionarios')
+
+def mostrar_datos(**datos):
+    print(datos)
+    
+    
+mostrar_datos(nombre="Juan", edad=30, ciudad="Buenos Aires")
+
+""" 
+# Desafío 1 — Sistema de calificaciones
+
+Crear un programa que permita:
+
+1. ingresar alumnos; [ { nombre: 'Juan', notas: [8,7,9] }, {}, {} ]
+2. ingresar notas;
+3. calcular promedio -> asumo que el alumno tenga 3 notas
+4. determinar estado:
+   - aprobado; -> mayor o igual a 6
+   - desaprobado;
+5. mostrar alumno con mayor promedio;
+6. mostrar promedio general.
+
+**Condición:** utilizar funciones y estructuras de datos.
+
+-> Una lista de diccionarios.
+
+-> ingresar_alumnos() (El nombre del alumno y las notas)
+-> calcular_promedio(notas)
+-> determinar_estado(promedio) # Si esta aprobado o no
+-> mostrar_alumno(alumnos)
+-> obtener_mejor_alumno(alumnos)
+-> calcular_promeido_general(alumnos)
+"""
+
+def calcular_promedio(notas):
+    sumatoria = sum(notas)
+    cantidad = len(notas)
+    promedio = sumatoria / cantidad
+    promedio_rendondeado = round(promedio)
+    return promedio_rendondeado
+
+def determinar_estado(promedio):
+    if promedio >= 6:
+        return "Aprobado"
+    else: 
+        return "Desaprobado"
+        
+
+def ingresar_alumnos():
+    
+    alumnos = []
+    
+    cantidad = int(input("¿Cuántos alumnos desea ingresar? "))
+    
+    for i in range(cantidad): 
+        print(f"Alumno {i + 1}")
+        
+        nombre = input("Nombre: ")
+        
+        notas = []
+        
+        for j in range(3):
+            nota = float(input(f"Nota {j + 1}: "))
+            notas.append(nota)
+        
+        # print(nombre)
+        # print(notas)
+        promedio = calcular_promedio(notas)
+        estado = determinar_estado(promedio)
+        
+        alumno = {
+            "nombre": nombre,
+            "notas": notas,
+            "promedio": promedio,
+            "estado": estado
+        }
+        
+        alumnos.append(alumno)
+        
+    # print(alumnos)
+    return alumnos
+    
+def mostrar_alumnos(alumnos):
+    print('\n--- Alumnos ---')
+    
+    for alumno in alumnos:
+        print(f"Nombre: {alumno['nombre']}")
+        print(f"Notas: {alumno['notas']}")
+        print(f"Promedio: {alumno['promedio']}")
+        print(f"Estado: {alumno['estado']}")
+        print()
+
+# Programa principal
+
+alumnos = ingresar_alumnos()
+mostrar_alumnos(alumnos)
