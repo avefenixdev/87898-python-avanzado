@@ -368,18 +368,98 @@ def ingresar_alumnos():
         
     # print(alumnos)
     return alumnos
-    
+
+def mostrar_alumno(alumno):
+    print(f"Nombre: {alumno['nombre']}")
+    print(f"Notas: {alumno['notas']}")
+    print(f"Promedio: {alumno['promedio']}")
+    print(f"Estado: {alumno['estado']}")
+    print()
+
 def mostrar_alumnos(alumnos):
     print('\n--- Alumnos ---')
     
     for alumno in alumnos:
-        print(f"Nombre: {alumno['nombre']}")
-        print(f"Notas: {alumno['notas']}")
-        print(f"Promedio: {alumno['promedio']}")
-        print(f"Estado: {alumno['estado']}")
-        print()
+       mostrar_alumno(alumno)
+
+def obtener_mejor_alumno(alumnos):
+    mejor = alumnos[0] # 8.0
+    
+    for alumno in alumnos:
+        if alumno['promedio'] > mejor['promedio']:
+            mejor = alumno
+            
+    return mejor
+
+def calcular_promedio_general(alumnos):
+    suma = 0
+    
+    for alumno in alumnos:
+        suma += alumno['promedio']
+        
+    cantidad_alumnos = len(alumnos)
+    return suma / cantidad_alumnos
 
 # Programa principal
 
-alumnos = ingresar_alumnos()
-mostrar_alumnos(alumnos)
+def start():
+    alumnos = ingresar_alumnos()
+    mostrar_alumnos(alumnos)
+    mejor_alumno = obtener_mejor_alumno(alumnos)
+    print('---_ MEJOR ALUMNO _---')
+    mostrar_alumno(mejor_alumno)
+    promedio_general = calcular_promedio_general(alumnos)
+    print(f"Promedio general: {promedio_general:.2f}")
+
+# start()
+
+print('# ! Gestión de errores (Excepciones)')
+# Un programa puede encontrarse con situaciones inesperadas
+
+# * El usuario indroduce texto cuando esperamos un número
+# * Un archivo no existe
+# * Intentamos dividr por cero.
+# * Accedemos a posiciones inexistentes
+# * Una clave no existe en un diccionario
+
+print('Inicio del programa')
+
+numero = 10
+divisor = 0 # ZeroDivisionError: division by zero
+
+# resultado = numero / divisor
+print('# ! try/except')
+
+try: # se intentan
+    resultado = numero / divisor
+except ZeroDivisionError:
+    print('No se puede dividir por cero')
+    divisor = 5
+    resultado = numero / divisor
+    print(resultado)
+    
+print('Fin del programa')
+
+print('# ! Casteo inválido')
+""" print('Inicio del programa')
+try:
+    edad = int(input("Ingrese su edad: ")) # ValueError: invalid literal for int() with base 10: 'Maxi'
+    print(edad)
+except ValueError:
+    print('Debe ingresar un número')
+    
+print('Fin del programa') """
+
+print('# ! Varias excepciones')
+
+print('Inicio de programa')
+try: 
+    numero = int(input("Ingrese número: "))
+    resultado = 100 / numero
+    print(f"{resultado:.2f}")
+except ValueError:
+    print("Debe ingresar un número")
+except ZeroDivisionError:
+    print('El número no puede ser cero')
+        
+print('Fin de programa')
