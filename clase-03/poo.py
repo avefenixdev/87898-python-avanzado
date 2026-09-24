@@ -82,3 +82,16 @@ print(f"Perimetro del rectangulo 1: {rectangulo1.calcular_perimetro()}" )
 print(f"Perimetro del rectangulo 2: {rectangulo2.calcular_perimetro()}" )
 print(rectangulo1)
 print(rectangulo2)
+
+# Enunciado.
+# 1. Crear una clase (molde) producto
+# 2. Tiene tener un constructor para inicializar el nombre, categoria y precio del producto
+# 3. aplicar_descuento() -> Tiene que tener el comportamiento para poder aplicar descuento.
+# Producto con 10% de descuento
+# descuento = precio * porcentaje / 100 
+# precio = precio - descuento
+# 4. mostrar() -> Otro comportamiento que va a mostrar en la consola El nombre del producto, 
+# la categoría y el precio con descuento
+# 5. Crear el __str__ para mostrar el nombre y el precio.
+
+# Averiguar como hacer herencia en Python y como crear una clase abstracta. (Googlear buscando la solución con la IA)
