@@ -146,3 +146,36 @@ duplicar = lambda numero: numero * 2
 
 print(duplicar(5))
 
+print("map()")
+
+numeros = [ 3, 5, 10, 3, 2, 8 ]
+
+resultado = map( lambda x: x * 2, numeros)
+
+# map(lambda x: x * 2, numeros)
+# numeros.map((x) => x * 2)
+
+print(resultado) # ----> objeto -> iterador
+# iterador -> Que tiene almacenado los valores uno a uno dentro y a medido que se lo pido, voy consumiendo el iterador. Llega un momento que queeda el iterar vacío
+
+duplicadosLista = list(resultado)
+print(duplicadosLista)
+resultado = map( lambda x: x * 2, numeros)
+duplicadosTupla = tuple(resultado)
+print(duplicadosTupla)
+
+triplicar = list(map(lambda y: y * 3, numeros))
+print(triplicar)
+
+# print('Maxi' * 5)
+
+print("filter()")
+
+pares = filter(lambda x: x % 2 == 0, numeros)
+
+print(pares) # Tengo iterador
+
+listaDePares = list(pares)
+
+print(listaDePares)
+
