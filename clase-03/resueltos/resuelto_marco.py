@@ -1,8 +1,8 @@
 def validar_edad(edad):
     if edad <= 18:
         raise ValueError("Debe ser mayor de edad")
-def crear_usuario(nombre, edad,ciudad, profesion):
-    print(f"Nombre: {nombre} \nEdad: {edad} \nCiudad: {ciudad} \nProfesion: profesion")
+def crear_usuario(nombre, edad, ciudad, profesion):
+    print(f"Nombre: {nombre} \nEdad: {edad} \nCiudad: {ciudad} \nProfesion: {profesion}")
 def calcular_promedio(notas):
     return round(sum(notas)/len(notas),2)
 def cargar_notas(tam):
@@ -16,9 +16,9 @@ def sistemaNotas():
     try:
         nombre = input('Ingrese el nombre: ')
         edad = int(input('Ingrese la edad: '))
+        validar_edad(edad)
         ciudad = input('Ingrese la ciudad: ')
         profesion = input('Ingrese la profesion: ')
-        validar_edad(edad)
         datos_usuario = {
             "nombre": nombre,
             "edad":edad,

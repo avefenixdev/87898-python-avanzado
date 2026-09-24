@@ -85,7 +85,7 @@ print("Creando nuestra propiedas excepciones")
 print
 ("-----------------------------------------")
 
-from excepciones import SaldoInsuficienteError
+from excepciones import SaldoInsuficienteError # Esto va a siempre arriba de todo
 
 # función con excepción
 def comprobarSaldo(saldo, monto):
@@ -133,3 +133,16 @@ Promedio: 8.0
 =====================
 
 """
+
+print("Funciones lambda")
+# Una función pequeña y anónima
+
+# función tradicional
+""" def duplicar(numero):
+    return numero * 2 """
+
+# función lambda
+duplicar = lambda numero: numero * 2
+
+print(duplicar(5))
+
