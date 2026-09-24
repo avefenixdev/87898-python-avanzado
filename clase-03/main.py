@@ -73,8 +73,63 @@ def validar_edad(edad):
 # bloque principal
 print('Inicio del programa')
 try:
-    validar_edad(20)
+    validar_edad(15)
     print('Siguiente paso')
 except ValueError as error:
     print('ERROR:', error)
 print('Fin del programa')  
+
+
+print("-----------------------------------------")
+print("Creando nuestra propiedas excepciones")
+print
+("-----------------------------------------")
+
+from excepciones import SaldoInsuficienteError
+
+# función con excepción
+def comprobarSaldo(saldo, monto):
+    if monto > saldo:
+        raise SaldoInsuficienteError("No hay saldo suficiente")
+
+# programa principal
+print("Inicio programa")
+try: 
+    saldo = 2000
+    monto = 5000
+    
+    if monto <= 0:
+        raise ValueError('El monto debe ser mayor a cero')
+    
+    comprobarSaldo(saldo, monto)
+    print('Extracción correcta...')
+except SaldoInsuficienteError as error:
+    print('ERROR:', error)
+except ValueError as error:
+    print('ERROR:', error)
+
+print("Fin programa")
+
+# Desafío integrador
+# El programa debe pedir lo siguiente:
+""" 
+1. Pedir el nombre. | input()
+2. Pedir edad. | input() -> excepciones
+3. Pedir ciudad. | input()
+4. Pedir profesión. | input()
+5. Crear el perfil usando **kwargs | función que kwargs -> dict
+6. Pedir 3 notas -> for -> range(3) -> list
+7. Calcular el promedio utilizando *args | calcularPromedio(list) -> sum()
+8. Mostrar todos los datos """
+
+""" 
+=====================
+Nombre: Maxi
+Edad: 22
+Ciudad: Buenos Aires
+Profesión: Profe
+Notas: [7, 8, 9]
+Promedio: 8.0
+=====================
+
+"""
