@@ -13,7 +13,9 @@
 
 # Clases de 3 productos (PC, Monitor, Mouse) 1-2 caracteresticas
 
-class Animal:
+from abc import ABC, abstractmethod
+# Heredar de la clase ABC lo que hace es convertir a Animal en una clase abstracta
+class Animal(ABC):
     
     def __init__(self, nombre, edad, peso):
         # Atributos
@@ -26,9 +28,11 @@ class Animal:
         
     def dormir(self):
         print(f"{self.__nombre} está durmiendo")
-        
+    
+    @abstractmethod
     def hacer_sonido(self):
-        print(f"{self.__nombre} está haciendo un sonido")
+        #print(f"{self.__nombre} está haciendo un sonido")
+        pass
     
     # Getter de nombre
     @property
@@ -141,3 +145,90 @@ print(gato.nombre)
 tigre.hacer_sonido()
 leon.hacer_sonido()
 gato.hacer_sonido()
+
+# Intentamos instanciar la Clase Abstracta Animal
+
+""" animal = Animal('Animal', 4, 100)
+print(animal) """
+
+# ! No arroja error por eso dejamos comentado
+print('---------------------------------------------')
+print('------------ Trabajo con archivos -----------')
+print('---------------------------------------------')
+
+def abrir_archivo(nombre):  
+    try:
+        archivo = open(nombre)
+        print(archivo)
+        print("Archivo abierto correctamente")
+    except FileNotFoundError:
+        print('No existe el archivo')
+
+# abrir_archivo("datos.txt")
+
+def escribir_archivo(texto):
+    
+    with open("datos.txt", "w") as archivo:
+        archivo.write(texto)
+
+# escribir_archivo("Hola Python!")
+
+def leer_archivo():
+    with open("datos.txt", "r") as archivo:
+        contenido = archivo.read()
+    
+    print(contenido)
+
+# leer_archivo()
+# r -> read
+# w -> write
+# a -> append (write)
+def escribir_varias_lineas(nombre_archivo):
+    with open(nombre_archivo, "w") as archivo:
+        archivo.write("Laura\n")
+        archivo.write("Juan\n")
+        archivo.write("Ana\n")
+        archivo.write("Pedro\n")
+    print(f"El archivo {nombre_archivo} se escribió correctamente")
+    
+# escribir_varias_lineas("alumnos.txt")
+
+def leer_linea_a_linea():
+    with open("alumnos.txt", "r") as archivo:
+        
+        for linea in archivo:
+            print(linea.strip())
+            
+leer_linea_a_linea()
+
+def agregar_contenido_al_archivo():
+    with open("alumnos.txt", "a") as archivo:
+        archivo.write("Maria\n")
+        
+# agregar_contenido_al_archivo()
+
+# -----------------------------
+# Desafío con archivos
+# -----------------------------
+
+# Crear un programa que solicitea a una persona
+
+# - Nombre
+# - Edad
+# - Ciudad
+
+# > archivo -> persona.txt
+
+# El archivo debe contenedor lo siguiente:
+
+# Nombre: Romina
+# Edad: 25
+# Ciudad: Buenos Aires
+
+# Segunda etapa -> leer el archivo y mostrar esos datos
+
+""" 
+pedir_datos()
+guardar_datos_archivo()
+leer_datos_archivo()
+"""
