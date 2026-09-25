@@ -11,24 +11,51 @@
 
 # Averiguar como hacer herencia en Python y como crear una clase abstracta. (Googlear buscando la solución con la IA)
 
-# 3 productos (PC, Monitor, Mouse) 1-2 caracteresticas
+# Clases de 3 productos (PC, Monitor, Mouse) 1-2 caracteresticas
 
 class Animal:
     
     def __init__(self, nombre, edad, peso):
         # Atributos
-        self.nombre = nombre
-        self.edad = edad
-        self.peso = peso
+        self.__nombre = nombre
+        self.__edad = edad
+        self.__peso = peso
     
     def comer(self):
-        print(f"{self.animal} está comiendo")
+        print(f"{self.__nombre} está comiendo")
         
     def dormir(self):
-        print(f"{self.nombre} está durmiendo")
+        print(f"{self.__nombre} está durmiendo")
         
     def hacer_sonido(self):
-        print(f"{self.nombre} está haciendo un sonido")
+        print(f"{self.__nombre} está haciendo un sonido")
+    
+    # Getter de nombre
+    @property
+    def nombre(self):
+        return self.__nombre
+    # Setter de nombre
+    @nombre.setter
+    def nombre(self, nuevo_nombre):
+        self.__nombre = nuevo_nombre
+        
+    # Getter de edad
+    @property
+    def edad(self):
+        return self.__edad
+    # Setter de edad
+    @edad.setter
+    def edad(self, nuevo_edad):
+        self.__edad = nuevo_edad
+        
+    # Getter de peso
+    @property
+    def peso(self):
+        return self.__peso
+    # Setter de peso
+    @peso.setter
+    def peso(self, nuevo_peso):
+        self.__peso = nuevo_peso
 
 # HERENCIA ---- Nos permite heredar de una Clase Base. Clase Padre
 
