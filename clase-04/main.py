@@ -72,21 +72,48 @@ class Leon(Animal):
     
     def __init__(self, nombre, edad, peso, tiene_melena):
         super().__init__(nombre, edad, peso)
-        self.tiene_melena = tiene_melena
+        self.__tiene_melena = tiene_melena
     
     def hacer_sonido(self):
         print(f"{self.nombre} ruge fuertemente")
+        
+    # Getter de tiene_melena
+    @property
+    def tiene_melena(self):
+        return self.__tiene_melena
+    # Setter de tiene_melena
+    @tiene_melena.setter
+    def tiene_melena(self, nuevo_tiene_melena):
+        self.__tiene_melena = nuevo_tiene_melena
         
 class Gato(Animal):
     
     # sobreescribimos el constructor de animal
     def __init__(self, nombre, edad, peso, es_mascota, color):
         super().__init__(nombre, edad, peso)
-        self.es_mascota = es_mascota
-        self.color = color
+        self.__es_mascota = es_mascota
+        self.__color = color
     
     def hacer_sonido(self):
         print(f"{self.nombre} maúlla")
+        
+    # Getter de es_mascota
+    @property
+    def es_mascota(self):
+        return self.__es_mascota
+    # Setter de es_mascota
+    @es_mascota.setter
+    def es_mascota(self, nuevo_es_mascota):
+        self.__es_mascota = nuevo_es_mascota
+        
+    # Getter de color
+    @property
+    def color(self):
+        return self.__color
+    # Setter de color
+    @color.setter
+    def color(self, nuevo_color):
+        self.__color = nuevo_color
         
 # Programa principal
 
@@ -95,7 +122,7 @@ leon = Leon("Alex", 5, 190, True)
 gato = Gato("Garfield", 3, 5, True, "Naranjoso")
 
 # Atributos
-print(tigre.nombre)
+print(tigre.nombre) 
 print(tigre.peso)
 
 print(leon.nombre)
@@ -104,6 +131,10 @@ print(leon.tiene_melena)
 print(gato.nombre)
 print(gato.color)
 print(gato.es_mascota)
+
+# setters
+gato.nombre = "Chatran"
+print(gato.nombre)
 
 # Métodos
 
