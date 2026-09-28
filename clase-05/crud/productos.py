@@ -26,7 +26,7 @@ def listar_productos():
     try:
         # filas === cursor
         filas = conexion.execute(
-            "SELECT id, nombre, precio, stock FROM producto ORDER BY id"
+            "SELECT id, nombre, precio, stock FROM productos ORDER BY id"
         ).fetchall()
         return [dict(fila) for fila in filas] # retorno una lista de dicts (un array de objetos de js)
     finally:
