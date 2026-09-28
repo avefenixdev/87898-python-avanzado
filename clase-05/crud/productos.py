@@ -22,13 +22,55 @@ def crear_producto(nombre, precio, stock):
   
     
 def listar_productos():
-    print()
+    conexion = conectar()
+    try:
+        # filas === cursor
+        filas = conexion.execute(
+            "SELECT id, nombre, precio, stock FROM producto ORDER BY id"
+        ).fetchall()
+        return [dict(fila) for fila in filas] # retorno una lista de dicts (un array de objetos de js)
+    finally:
+        conexion.close()
     
 def obtener_producto(identificador):
-    print()
+    conexion = conectar()
+    try:
+        # preparo la consulta y ejecuto la consulta
+        # fila === cursor
+        fila = conexion.execute(
+            "SELECT id, nombre, precio, stock FROM productos WHERE id = ?",
+            (identificador,)
+        ).fetchone()
+        return dict(fila) if fila is not None else None # retorno un dict (objeto de js)
+    finally:
+        conexion.close()
 
 def actualizar_producto(identificador, nombre, precio, stock):
-    print()
+    conexion = conectar()
+    try:
+        cursor = conexion.execute(
+            """ UPDATE productos SET nombre = ?, precio = ?, stock = ?
+               WHERE id = ? """,
+            (nombre, precio, stock, identificador)
+        )
+        conexion.commit()
+        return cursor.rowcount > 0
+    except Exception:
+        conexion.rollback()
+        raise
+    finally:
+        conexion.close()
     
-def eliminar_producto(identificdor):
-    print()
+def eliminar_producto(identificador):
+    conexion = conectar()
+    try:
+        cursor = conexion.execute(
+            "DELETE FROM productos WHERE id = ?", (identificador,)
+        )
+        conexion.commit()
+        return cursor.rowcount > 0
+    except Exception:
+        conexion.rollback()
+        raise
+    finally:
+        conexion.close()
