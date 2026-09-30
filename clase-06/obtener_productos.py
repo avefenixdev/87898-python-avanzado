@@ -13,8 +13,17 @@ def obtener_productos(producto_id):
         if not isinstance(producto, dict) or 'title' not in producto:
             raise ValueError("La respuesta no tiene el formato esperado")
         return producto
+    except requests.exceptions.ContentDecodingError:
+        print("La respuesta no contiene JSON válido")
+    except requests.exceptions.Timeout:
+        print("Se agotó el tiempo de espera")
+    except requests.exceptions.RequestException as error:
+        print(f"Falló la comunicación: {error}")
     except ValueError as error:
         print(f"Datos inesperados. {error}")
+    return None
 
-
-print(obtener_productos(1))
+if __name__ == "__main__":
+    producto = obtener_productos(1)
+    if producto is not None:
+        print(producto['title'])
